@@ -1,0 +1,2 @@
+#!/binn/bash
+find . -type f -name "*.gif" -printf "%f\n" | sed 's/\.gif$//' | sort -f -d | tr '\n' '\0' | xargs -0 -I{} echo {} 
