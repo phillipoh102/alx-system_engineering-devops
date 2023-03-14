@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check if the file already exists
+if [ -f ls_cwd_content ]; then
+  rm ls_cwd_content
+fi
+
+# Execute the command and write output to the file
+ls -la > ls_cwd_content
+
+echo "ls -la command output has been written to ls_cwd_content file."
+
