@@ -1,0 +1,2 @@
+#!/bin/bash
+awk -F: '{print $1, $6}' 22-users_and_homes | sort
