@@ -1,0 +1,20 @@
+#!/bin/bash
+
+filename=$1
+declare -A hosts
+
+while read line
+do
+  host=$(echo $line | cut -f 1)
+  if [[ -v hosts[$host] ]]
+  then
+    hosts[$host]=$(( ${hosts[$host]} + 1 ))
+  else
+    hosts[$host]=1
+  fi
+done < $filename
+
+for host in "${!hosts[@]}"
+do
+  echo $host ${hosts[$host]}
+done | sort -rn -k2 | head -n 11
