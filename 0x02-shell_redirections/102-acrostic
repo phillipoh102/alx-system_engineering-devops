@@ -1,0 +1,12 @@
+#!/bin/bash
+
+filename=$1
+decoded_message=""
+
+while read line
+do
+  first_letter=$(echo $line | cut -c 1)
+  decoded_message="${decoded_message}${first_letter}"
+done < $filename
+
+echo -e "${decoded_message}\\n"
